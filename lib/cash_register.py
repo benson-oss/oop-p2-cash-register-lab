@@ -37,7 +37,6 @@ class CashRegister:
         if self.discount > 0:
             discount_amount = self.total * (self.discount / 100)
             self.total -= discount_amount
-
             self.previous_transactions.append({
                 "action": "discount",
                 "discount": self.discount
@@ -64,6 +63,7 @@ class CashRegister:
             discount_amount = (
                 self.total * last["discount"]
                 / (100 - last["discount"])
+
             )
             self.total += discount_amount
             print(f"Voided discount of {last['discount']}%")
